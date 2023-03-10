@@ -26,7 +26,7 @@ Latex提供了很方便的文献引用。你需要把你想引用的文献的信
 但是这些items包含了很多不必要的信息，比如abstract，DOI，keywords，所以我写了一个脚本update_bib_from_mendeley.sh来删除这些内容。此外，Mendeley有时候会把文章类型错弄成generic或report，我也用上面的脚本把它们更改为article。脚本使用方法：windows下把它和其他文件放到同一目录下，然后双击；Linux下，直接`. update_bib_from_mendeley.sh` 或者 `source update_bib_from_mendeley.sh`。
 
 这样得到的library.bib包含了完整的期刊名。很多杂志要求用期刊名的缩写。同样，一个一个改太慢了，我写了abbriviate.py，又下载了最全的期刊名全写与缩写的对照表，存于journal_list.txt，
-使用方法：`python abbriviate.py library.bib`
+使用方法：`python abbreviate.py library.bib`
 就能得到期刊名缩写的library_abbreviated.bib。
 
 我又写了extend.py来实现逆转换。后面只需要更新一个，另一个用代码转换即可。

@@ -4,6 +4,7 @@
 import os
 import re
 import sys
+# import torchsnooper
 
 try:
     # 将bib file的内容存入一个超长string
@@ -17,9 +18,13 @@ except FileNotFoundError:
     exit(1)
 
 # 逐个读取journal_list.txt中的全名-缩写名，并用缩写名替换超长string中的全名
-fr = open('journal_list.txt', 'r', errors='ignore')
+# fr = open('journal_list.txt', 'r', errors='ignore')
+fr = open('CS_journal_conf_list.txt', 'r', errors='ignore')
+
 line = fr.readline()
 
+
+# with torchsnooper.snoop():      
 while(line):
     # 全名在前，缩写名在后
     full, short = line[:-1].split(" = ")[:2]
@@ -39,6 +44,7 @@ while(line):
     
     # 读取下一个期刊
     line = fr.readline()
+
 
 # 将替换后的超长string写入新文件
 with open('library_abbreviated.bib', 'w') as outfile:
