@@ -32,7 +32,11 @@ while(line):
     full, short = '{%s}'%full, '{%s}'%short
     
     # 全为大写或只含一个单词的期刊全名不需要被替换 
-    if full != full.upper() and (' ' in full):
+    # if full != full.upper() and (' ' in full):
+
+    # 一个单词缩写需要替换，如NeurIPS，ACL
+    if full :
+
         # 生成一个正则表达式对象，注意用escape取消{和}的特殊含义，并且忽略大小写
         pattern = re.compile(re.escape(full), re.IGNORECASE)
         # 用正则表达式对象的subn method实现替换和统计
